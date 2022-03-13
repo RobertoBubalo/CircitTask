@@ -1,6 +1,6 @@
 <template>
 	<select name="cities" @change="valueChanged($event)" class="form-select form-control">
-		<option value="" disabled selected> {{ placeholder }} </option>
+		<option value="" disabled selected hidden> {{ placeholder }} </option>
     <option v-bind:key="d" v-for="d in data"> {{ d }} </option>
 	</select>
 </template>
