@@ -3,3 +3,7 @@
 /Backend/obj
 /Backend.Tests/bin
 /Backend.Tests/obj
+.vs/
+.vs
+/Backend/bin
+/Backend/bin/
