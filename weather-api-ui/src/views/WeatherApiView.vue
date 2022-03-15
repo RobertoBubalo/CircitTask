@@ -24,9 +24,6 @@ export default {
   },
   data() {
     return {
-      onChange(e) {
-        console.log(e.target.value);
-      },
       cities: ["Dublin", "London", "Paris" ],
       info: ["Current", "Astronomy", "Timezone" ],
       selectedCity: "",
