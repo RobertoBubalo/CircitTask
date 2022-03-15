@@ -1,6 +1,6 @@
 <template>
-  <div class="weatherapi">
-    <select-data :data="cities" @data-changed="cityChanged" placeholder='Select a City'></select-data>
+  <div class="container__weatherapi">
+    <select-data :data="cities" :block="true" @data-changed="cityChanged" placeholder='Select a City'></select-data>
     <select-data :data="info" @data-changed="infoChanged" placeholder='Select information'></select-data>
 
     <timezone-info v-if="show == 'Timezone'" :tz-data="cityData.location" />
@@ -65,3 +65,10 @@ export default {
 }
 </script>
 
+<style scoped>
+.container__weatherapi {
+  margin: auto;
+  width: 50%;
+  padding: 1rem;
+}
+</style>

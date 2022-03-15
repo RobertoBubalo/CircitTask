@@ -1,11 +1,14 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/weatherapi">Weather Api</router-link>
+  <div class="container">
 
-  </nav>
-  <router-view/>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/weatherapi">Weather Api</router-link>
+
+    </nav>
+    <router-view />
+  </div>
 </template>
 
 <style>
@@ -15,6 +18,12 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.container {
+  margin: auto;
+  width: 50%;
+  padding: 1rem;
 }
 
 nav {
