@@ -31,9 +31,6 @@ namespace CircitTask.Services
                     HttpMethod.Get,
                     endpoint
                 ));
-
-            var qParams = CreateQueryParams();
-            //return await _apiRequest.Get<T>(endpoint);
         }
 
         HttpRequestMessage CreateBaseRequest(HttpMethod method, string endpoint, string queryParams = "")
@@ -42,20 +39,12 @@ namespace CircitTask.Services
             {
                 Method = method,
                 RequestUri = new Uri($"{_baseEndpoint}{endpoint}{(string.IsNullOrEmpty(queryParams) ? "" : "/?" + queryParams )}"),
-                //RequestUri = new Uri($"https://weatherapi-com.p.rapidapi.com/timezone.json?q={city}"),
                 Headers =
                 {
                     { "x-rapidapi-host", _host },
                     { "x-rapidapi-key", _key },
                 },
             };
-        }
-
-        private string CreateQueryParams()
-        {
-
-
-            return "";
         }
     }
 }

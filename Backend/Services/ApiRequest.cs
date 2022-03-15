@@ -1,8 +1,5 @@
 ﻿using CircitTask.Services.Interfaces;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -31,16 +28,12 @@ namespace CircitTask.Services
         {
             HttpResponseMessage response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseContentRead);
 
-            if (response.IsSuccessStatusCode)
-            {
-                string json = await response.Content.ReadAsStringAsync();
-                var model = JsonConvert.DeserializeObject<T>(json);
-                return model;
-            }
+            // TODO: Handle the exception and do not throw
+            response.EnsureSuccessStatusCode();
 
-            // Handle the error gracefully
-            string exceptionMsg = await response.Content.ReadAsStringAsync();
-            throw new HttpRequestException(exceptionMsg);
+            string json = await response.Content.ReadAsStringAsync();
+            var model = JsonConvert.DeserializeObject<T>(json);
+            return model;
         }
 
         HttpRequestMessage CreateBaseRequest(HttpMethod method, string endpoint)
